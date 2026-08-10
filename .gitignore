@@ -1,0 +1,28 @@
+@"
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Logs
+*.log
+
+# OS / IDE
+.DS_Store
+.vscode/
+"@ | Out-File -Encoding utf8 .gitignore

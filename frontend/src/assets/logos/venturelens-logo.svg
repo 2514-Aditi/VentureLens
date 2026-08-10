@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>VentureLens logo mark</title>
+  <path d="M92 92H176L256 300L336 92H420L302 398Q256 450 210 398Z" fill="#17263A"/>
+  <path d="M205 355Q216 375 238 350L343 125H410L274 382Q248 421 220 390Z" fill="#E98B50"/>
+  <circle cx="337" cy="272" r="91" fill="#17263A"/>
+  <circle cx="337" cy="272" r="70" fill="none" stroke="#FCFBF7" stroke-width="8"/>
+  <path d="M399 335L448 384" fill="none" stroke="#17263A" stroke-width="30" stroke-linecap="round"/>
+  <rect x="295" y="288" width="20" height="42" rx="3" fill="#E98B50"/>
+  <rect x="326" y="265" width="20" height="65" rx="3" fill="#E98B50"/>
+  <rect x="357" y="235" width="20" height="95" rx="3" fill="#E98B50"/>
+</svg>

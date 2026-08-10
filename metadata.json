@@ -1,0 +1,6 @@
+{
+  "name": "Company Intelligence",
+  "description": "Professional company research and intelligence platform comparing Pronto and Snabbit with verified metrics, source tracking, and analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

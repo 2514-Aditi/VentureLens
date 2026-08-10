@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --color-bg-light: #FCFBF7;
+    --color-surface-light: #FFFFFF;
+    --color-surface-subtle-light: #F5F3ED;
+    --color-border-light: #E5E2DC;
+    --color-text-main-light: #222222;
+    --color-text-muted-light: #666666;
+
+    --color-bg-dark: #161616;
+    --color-surface-dark: #202020;
+    --color-surface-subtle-dark: #262626;
+    --color-border-dark: #333333;
+    --color-text-main-dark: #F7F7F5;
+    --color-text-muted-dark: #B7B7B7;
+
+    /* Official Brand Palette */
+    --color-yellow: #FEF2A0;
+    --color-gold: #F3CD97;
+    --color-orange: #E98B50;
+    --color-red: #BC4F4F;
+  }
+
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main-light);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .dark body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-main-dark);
+  }
+}
+
+/* Custom scrollbar styling for professional data tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d0c7;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b5b0a3;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
