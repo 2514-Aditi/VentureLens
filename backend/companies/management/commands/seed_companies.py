@@ -55,8 +55,8 @@ class Command(BaseCommand):
                     'daily_bookings_formatted': '26,000 Daily Bookings',
                     'currency': 'USD',
                     'as_of_date': 'May 2026',
-                    'source_name': 'Fortune India & TechFundingNews',
-                    'source_url': 'https://www.fortuneindia.com'
+                    'source_name': 'TechCrunch',
+                    'source_url': 'https://techcrunch.com/2026/05/06/a-20-minute-pitch-wins-indian-startup-pronto-backing-from-lachy-groom/'
                 }
             )
 
@@ -71,40 +71,42 @@ class Command(BaseCommand):
             FundingRound.objects.create(
                 company=pronto, round_type='Seed', amount_usd=2000000, amount_formatted='$2.0 Million',
                 currency='USD', date='May 2025', valuation_formatted='Not Publicly Reported',
-                investors=['Bain Capital Ventures'], source_name='Entrackr', source_url='https://entrackr.com'
+                investors=['Bain Capital Ventures'], source_name='TechCrunch', source_url='https://techcrunch.com/2025/05/15/bain-bets-on-indian-domestic-work-startup-pronto-even-as-rivals-face-criticism/'
             )
             FundingRound.objects.create(
                 company=pronto, round_type='Series A', amount_usd=11000000, amount_formatted='$11.0 Million',
                 currency='USD', date='August 2025', valuation_usd=45000000, valuation_formatted='$45.0 Million',
                 investors=['General Catalyst (Co-Lead)', 'Glade Brook Capital (Co-Lead)', 'Bain Capital Ventures'],
-                source_name='TechCrunch & YourStory', source_url='https://yourstory.com'
+                source_name='TechCrunch & YourStory', source_url='https://yourstory.com/2025/08/pronto-raises-11m-series-a-general-catalyst-glade-brook-capital'
             )
             FundingRound.objects.create(
                 company=pronto, round_type='Series B', amount_usd=25000000, amount_formatted='$25.0 Million',
                 currency='USD', date='March 2026', valuation_usd=100000000, valuation_formatted='$100.0 Million',
                 investors=['Epiq Capital (Lead)', 'General Catalyst', 'Glade Brook Capital', 'Bain Capital Ventures'],
-                source_name='Economic Times', source_url='https://economictimes.indiatimes.com'
+                source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/pronto-raises-25-million-from-epiq-capital-existing-backers/articleshow/128950973.cms'
             )
             FundingRound.objects.create(
                 company=pronto, round_type='Series B Extension', amount_usd=20000000, amount_formatted='$20.0 Million',
                 currency='USD', date='May 2026', valuation_usd=200000000, valuation_formatted='$200.0 Million',
-                investors=['Lachy Groom'], source_name='Fortune India', source_url='https://www.fortuneindia.com'
+                investors=['Lachy Groom'], source_name='TechCrunch', source_url='https://techcrunch.com/2026/05/06/a-20-minute-pitch-wins-indian-startup-pronto-backing-from-lachy-groom/'
             )
 
             # Investors
-            Investor.objects.create(company=pronto, name='Lachy Groom', type='Angel', investment_round='Series B Extension', amount='$20.0M', date='May 2026', source_name='Fortune India', source_url='https://www.fortuneindia.com')
-            Investor.objects.create(company=pronto, name='Epiq Capital', type='Venture Capital', investment_round='Series B (Lead)', amount='$25.0M Round Lead', date='March 2026', source_name='Economic Times', source_url='https://economictimes.indiatimes.com')
-            Investor.objects.create(company=pronto, name='General Catalyst', type='Venture Capital', investment_round='Series A & B', amount='Co-Lead Series A', date='August 2025', source_name='TechCrunch', source_url='https://techcrunch.com')
-            Investor.objects.create(company=pronto, name='Glade Brook Capital', type='Venture Capital', investment_round='Series A & B', amount='Co-Lead Series A', date='August 2025', source_name='TechCrunch', source_url='https://techcrunch.com')
-            Investor.objects.create(company=pronto, name='Bain Capital Ventures', type='Venture Capital', investment_round='Seed, Series A, B', amount='$2.0M Seed Lead', date='May 2024', source_name='Entrackr', source_url='https://entrackr.com')
+            Investor.objects.create(company=pronto, name='Lachy Groom', type='Angel', investment_round='Series B Extension', amount='$20.0M', date='May 2026', source_name='TechCrunch', source_url='https://techcrunch.com/2026/05/06/a-20-minute-pitch-wins-indian-startup-pronto-backing-from-lachy-groom/')
+            Investor.objects.create(company=pronto, name='Epiq Capital', type='Venture Capital', investment_round='Series B (Lead)', amount='$25.0M Round Lead', date='March 2026', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/pronto-raises-25-million-from-epiq-capital-existing-backers/articleshow/128950973.cms')
+            Investor.objects.create(company=pronto, name='General Catalyst', type='Venture Capital', investment_round='Series A & B', amount='Co-Lead Series A', date='August 2025', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/home-services-startup-pronto-raises-11-million-from-general-catalyst-glade-brook-capital/articleshow/123243934.cms')
+            Investor.objects.create(company=pronto, name='Glade Brook Capital', type='Venture Capital', investment_round='Series A & B', amount='Co-Lead Series A', date='August 2025', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/home-services-startup-pronto-raises-11-million-from-general-catalyst-glade-brook-capital/articleshow/123243934.cms')
+            Investor.objects.create(company=pronto, name='Bain Capital Ventures', type='Venture Capital', investment_round='Seed, Series A, B', amount='$2.0M Seed Lead', date='May 2024', source_name='TechCrunch', source_url='https://techcrunch.com/2025/05/15/bain-bets-on-indian-domestic-work-startup-pronto-even-as-rivals-face-criticism/')
 
             # News
-            News.objects.create(company=pronto, title='Pronto Raises $20M Series B Extension Led by Lachy Groom, Valuation Reaches $200M', summary='Pronto secured $20M extension from Lachy Groom, reaching $200M valuation within 24 months.', source_name='Fortune India', source_url='https://www.fortuneindia.com', published_date='May 2026', category='Funding')
-            News.objects.create(company=pronto, title='Pronto Processes 26,000 Daily Orders Across 10 Metros With 4,500 Female Pros', summary='Daily completed bookings reached 26,000 across 10 Indian cities.', source_name='Economic Times', source_url='https://economictimes.indiatimes.com', published_date='April 2026', category='Operations')
+            News.objects.create(company=pronto, title='Pronto Raises $20M Series B Extension Led by Lachy Groom, Valuation Reaches $200M', summary='Pronto secured $20M extension from Lachy Groom, reaching $200M valuation within 24 months.', source_name='TechCrunch', source_url='https://techcrunch.com/2026/05/06/a-20-minute-pitch-wins-indian-startup-pronto-backing-from-lachy-groom/', published_date='May 2026', category='Funding')
+            News.objects.create(company=pronto, title='Pronto Processes 26,000 Daily Orders Across 10 Metros With 4,500 Female Pros', summary='Daily completed bookings reached 26,000 across 10 Indian cities.', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/startups/househelp-apps-top-2-million-monthly-orders-amid-profitability-questions/articleshow/129282139.cms', published_date='May 2026', category='Operations')
+            News.objects.create(company=pronto, title='Instant Househelp Startups Burn $14-15 Million in May as Discounts Heat Up', summary='Pronto, Snabbit and Urban Company increased discounts in May as competition intensified. Pronto recorded around 800,000-810,000 orders during the month, according to industry executives cited by ETtech.', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/technology/instant-househelp-startups-burn-14-15-million-in-may-as-discounts-heat-up/articleshow/131728593.cms', published_date='June 2026', category='Operations')
+            News.objects.create(company=pronto, title='Pronto Raises $11M Series A to Expand Quick Home Services', summary='Pronto raised $11M in Series A funding from General Catalyst, Glade Brook Capital and existing investors.', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/home-services-startup-pronto-raises-11-million-from-general-catalyst-glade-brook-capital/articleshow/123243934.cms', published_date='August 2025', category='Funding')
 
             # Sources
-            Source.objects.create(company=pronto, field_name='Series B Extension Funding & Valuation', source_name='Fortune India', source_url='https://www.fortuneindia.com', published_date='May 2026', accessed_date='2026-08-09')
-            Source.objects.create(company=pronto, field_name='Series B Funding & Lead Investor', source_name='Economic Times', source_url='https://economictimes.indiatimes.com', published_date='March 2026', accessed_date='2026-08-09')
+            Source.objects.create(company=pronto, field_name='Series B Extension Funding & Valuation', source_name='TechCrunch', source_url='https://techcrunch.com/2026/05/06/a-20-minute-pitch-wins-indian-startup-pronto-backing-from-lachy-groom/', published_date='May 2026', accessed_date='2026-08-09')
+            Source.objects.create(company=pronto, field_name='Series B Funding & Lead Investor', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/pronto-raises-25-million-from-epiq-capital-existing-backers/articleshow/128950973.cms', published_date='May 2026', accessed_date='2026-08-09')
 
 
             # 2. SEED SNABBIT DATA
@@ -153,8 +155,8 @@ class Command(BaseCommand):
                     'daily_bookings_formatted': 'Not Publicly Disclosed',
                     'currency': 'USD',
                     'as_of_date': 'April 2026',
-                    'source_name': 'TechCrunch & Inc42',
-                    'source_url': 'https://techcrunch.com'
+                    'source_name': 'TechCrunch',
+                    'source_url': 'https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/'
                 }
             )
 
@@ -166,21 +168,23 @@ class Command(BaseCommand):
             snabbit.growth_metrics.all().delete()
 
             # Funding rounds
-            FundingRound.objects.create(company=snabbit, round_type='Seed', amount_usd=1000000, amount_formatted='$1.0 Million', currency='USD', date='Early 2024', investors=['Nexus Venture Partners'], source_name='Entrackr', source_url='https://entrackr.com')
-            FundingRound.objects.create(company=snabbit, round_type='Series A', amount_usd=5500000, amount_formatted='$5.5 Million', currency='USD', date='January 2025', investors=['Elevation Capital (Lead)', 'Nexus Venture Partners', 'Angels'], source_name='YourStory', source_url='https://yourstory.com')
-            FundingRound.objects.create(company=snabbit, round_type='Undisclosed', amount_usd=19000000, amount_formatted='$19.0 Million', currency='USD', date='May 2025', investors=['Lightspeed India Partners (Lead)', 'Elevation Capital', 'Nexus'], source_name='India Tech Desk', source_url='https://indiatechdesk.com')
-            FundingRound.objects.create(company=snabbit, round_type='Series C', amount_usd=31700000, amount_formatted='$31.7 Million', currency='USD', date='October 2025', valuation_usd=180000000, valuation_formatted='$180.0 Million', investors=['Bertelsmann India', 'Lightspeed', 'Elevation', 'Nexus'], source_name='YourStory', source_url='https://yourstory.com')
-            FundingRound.objects.create(company=snabbit, round_type='Series D', amount_usd=56000000, amount_formatted='$56.0 Million', currency='USD', date='April 2026', valuation_usd=375000000, valuation_formatted='$350.0M - $400.0 Million', investors=['Susquehanna (Co-Lead)', 'Mirae Asset (Co-Lead)', 'Bertelsmann', 'Nexus', 'Lightspeed', 'FJ Labs'], source_name='TechCrunch', source_url='https://techcrunch.com')
+            FundingRound.objects.create(company=snabbit, round_type='Seed', amount_usd=1000000, amount_formatted='$1.0 Million', currency='USD', date='Early 2024', investors=['Nexus Venture Partners'], source_name='Business Standard', source_url='https://www.business-standard.com/companies/start-ups/snabbit-raises-5-5-mn-in-funding-led-by-elevation-capital-125012001316_1.html')
+            FundingRound.objects.create(company=snabbit, round_type='Series A', amount_usd=5500000, amount_formatted='$5.5 Million', currency='USD', date='January 2025', investors=['Elevation Capital (Lead)', 'Nexus Venture Partners', 'Angels'], source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/funding/quick-service-app-snabbit-raises-5-5-million-from-elevation-capital-nexus-venture-partners/articleshow/117405624.cms')
+            FundingRound.objects.create(company=snabbit, round_type='Undisclosed', amount_usd=19000000, amount_formatted='$19.0 Million', currency='USD', date='May 2025', investors=['Lightspeed India Partners (Lead)', 'Elevation Capital', 'Nexus'], source_name='YourStory', source_url='https://yourstory.com/2025/05/snabbit-funding-lightspeed-quick-home-services-mumbai-expansion')
+            FundingRound.objects.create(company=snabbit, round_type='Series C', amount_usd=31700000, amount_formatted='$31.7 Million', currency='USD', date='October 2025', valuation_usd=180000000, valuation_formatted='$180.0 Million', investors=['Bertelsmann India', 'Lightspeed', 'Elevation', 'Nexus'], source_name='YourStory', source_url='https://yourstory.com/2025/10/quick-service-app-snabbit-raises-rs-265-cr-in-series-c-round')
+            FundingRound.objects.create(company=snabbit, round_type='Series D', amount_usd=56000000, amount_formatted='$56.0 Million', currency='USD', date='April 2026', valuation_usd=375000000, valuation_formatted='$350.0M - $400.0 Million', investors=['Susquehanna (Co-Lead)', 'Mirae Asset (Co-Lead)', 'Bertelsmann', 'Nexus', 'Lightspeed', 'FJ Labs'], source_name='TechCrunch', source_url='https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/')
 
             # Investors
-            Investor.objects.create(company=snabbit, name='Susquehanna Venture Capital', type='Venture Capital', investment_round='Series D (Co-Lead)', amount='$56.0M Co-Lead', date='April 2026', source_name='TechCrunch', source_url='https://techcrunch.com')
-            Investor.objects.create(company=snabbit, name='Mirae Asset Venture Investments', type='Growth Equity', investment_round='Series D (Co-Lead)', amount='$56.0M Co-Lead', date='April 2026', source_name='TechCrunch', source_url='https://techcrunch.com')
-            Investor.objects.create(company=snabbit, name='Lightspeed India Partners', type='Venture Capital', investment_round='Series B (Lead), C, D', amount='$19.0M Series B Lead', date='May 2025', source_name='Inc42', source_url='https://inc42.com')
+            Investor.objects.create(company=snabbit, name='Susquehanna Venture Capital', type='Venture Capital', investment_round='Series D (Co-Lead)', amount='$56.0M Co-Lead', date='April 2026', source_name='TechCrunch', source_url='https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/')
+            Investor.objects.create(company=snabbit, name='Mirae Asset Venture Investments', type='Growth Equity', investment_round='Series D (Co-Lead)', amount='$56.0M Co-Lead', date='April 2026', source_name='TechCrunch', source_url='https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/')
+            Investor.objects.create(company=snabbit, name='Lightspeed India Partners', type='Venture Capital', investment_round='Series B (Lead), C, D', amount='$19.0M Series B Lead', date='May 2025', source_name='YourStory', source_url='https://yourstory.com/2025/05/snabbit-funding-lightspeed-quick-home-services-mumbai-expansion')
 
             # News
-            News.objects.create(company=snabbit, title='Snabbit Secures $56M Series D Co-Led by Susquehanna & Mirae Asset at $400M Valuation', summary='Snabbit closed a massive $56 million Series D round reaching $350M-$400M valuation.', source_name='TechCrunch', source_url='https://techcrunch.com', published_date='April 2026', category='Funding')
+            News.objects.create(company=snabbit, title='Snabbit Secures $56M Series D Co-Led by Susquehanna & Mirae Asset at $400M Valuation', summary='Snabbit closed a massive $56 million Series D round reaching $350M-$400M valuation.', source_name='TechCrunch', source_url='https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/', published_date='April 2026', category='Funding')
+            News.objects.create(company=snabbit, title='Snabbit Expands into At-Home Beauty Services', summary='Snabbit expanded beyond home maintenance into salon and beauty services following a Bengaluru pilot.', source_name='Economic Times', source_url='https://economictimes.indiatimes.com/tech/technology/of-kitchens-cosmetics-snabbit-forays-into-beauty-services-after-home-cooks/articleshow/131245618.cms', published_date='May 2026', category='Expansion')
+            News.objects.create(company=snabbit, title='Snabbit Reports 1.5 Million Monthly Home-Service Jobs', summary='Snabbit reported 1.5 million completed monthly home-service jobs in June, up from around one million in March.', source_name='ETRetail', source_url='https://retail.economictimes.indiatimes.com/amp/news/e-commerce/e-tailing/snabbit-says-it-completed-1-5-million-monthly-home-services-jobs-in-june/132280475', published_date='July 2026', category='Operations')
 
             # Sources
-            Source.objects.create(company=snabbit, field_name='Series D Funding & Valuation Range', source_name='TechCrunch', source_url='https://techcrunch.com', published_date='April 2026', accessed_date='2026-08-09')
+            Source.objects.create(company=snabbit, field_name='Series D Funding & Valuation Range', source_name='TechCrunch', source_url='https://techcrunch.com/2026/04/27/indias-snabbit-closes-56m-round-as-investor-interest-heats-up-in-on-demand-home-services/', published_date='April 2026', accessed_date='2026-08-09')
 
         self.stdout.write(self.style.SUCCESS('Successfully seeded verified data for Pronto and Snabbit into database!'))
