@@ -12,6 +12,24 @@ const apiClient = axios.create({
   timeout: 10000
 });
 
+const fixLogoUrl = (company: Company): Company => {
+  if (company.slug?.toLowerCase() === 'pronto') {
+    return {
+      ...company,
+      logo_url: '/logos/pronto.svg'
+    };
+  }
+
+  if (company.slug?.toLowerCase() === 'snabbit') {
+    return {
+      ...company,
+      logo_url: '/logos/snabbit.svg'
+    };
+  }
+
+  return company;
+};
+
 export const companyApi = {
   getCompanies: async (): Promise<Company[]> => {
     try {
@@ -107,15 +125,35 @@ export const companyApi = {
     }
   },
 
-  getComparison: async (company1 = 'pronto', company2 = 'snabbit'): Promise<ComparisonData> => {
-    try {
-      const response = await apiClient.get(`/compare?company1=${company1}&company2=${company2}`);
-      return response.data;
-    } catch (err) {
-      console.warn('API error fetching comparison, falling back to verified dataset:', err);
-      return COMPARISON_DATA;
-    }
-  },
+  getComparison: async (
+  company1 = 'pronto',
+  company2 = 'snabbit'
+): Promise<ComparisonData> => {
+  try {
+    const response = await apiClient.get(
+      `/compare?company1=${company1}&company2=${company2}`
+    );
+
+    const data = response.data;
+
+    return {
+      ...data,
+      company1: fixLogoUrl(data.company1),
+      company2: fixLogoUrl(data.company2)
+    };
+  } catch (err) {
+    console.warn(
+      'API error fetching comparison, falling back to verified dataset:',
+      err
+    );
+
+    return {
+      ...COMPARISON_DATA,
+      company1: fixLogoUrl(COMPARISON_DATA.company1),
+      company2: fixLogoUrl(COMPARISON_DATA.company2)
+    };
+  }
+},
 
   search: async (query: string): Promise<Company[]> => {
   try {
