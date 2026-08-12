@@ -118,20 +118,41 @@ export const companyApi = {
   },
 
   search: async (query: string): Promise<Company[]> => {
-    try {
-      const response = await apiClient.get(`/search?q=${encodeURIComponent(query)}`);
-      return response.data.results || [];
-    } catch (err) {
-      console.warn('API search error, filtering local verified dataset:', err);
-      const q = query.toLowerCase().trim();
-      if (!q) return [PRONTO_DATA, SNABBIT_DATA];
-      return [PRONTO_DATA, SNABBIT_DATA].filter(
-        (c) =>
-          c.name.toLowerCase().includes(q) ||
-          c.founder.toLowerCase().includes(q) ||
-          c.industry.toLowerCase().includes(q) ||
-          c.business_model.toLowerCase().includes(q)
+  try {
+    const response = await apiClient.get(
+      `/search?q=${encodeURIComponent(query)}`
+    );
+
+    if (response.data && Array.isArray(response.data.results)) {
+      const results = response.data.results;
+
+      // Convert search results into complete company objects
+      const details = await Promise.all(
+        results.map((company: { slug: string }) =>
+          companyApi.getCompanyBySlug(company.slug)
+        )
       );
+
+      return details;
     }
+
+    return [];
+  } catch (err) {
+    console.error('API search error:', err);
+
+    const q = query.toLowerCase().trim();
+
+    if (!q) {
+      return [PRONTO_DATA, SNABBIT_DATA];
+    }
+
+    return [PRONTO_DATA, SNABBIT_DATA].filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.founder.toLowerCase().includes(q) ||
+        c.industry.toLowerCase().includes(q) ||
+        c.business_model.toLowerCase().includes(q)
+    );
   }
+}
 };
