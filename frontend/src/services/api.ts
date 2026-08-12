@@ -3,7 +3,9 @@ import { Company, ComparisonData } from '../types';
 import { PRONTO_DATA, SNABBIT_DATA, COMPARISON_DATA } from '../data/companyData';
 
 const apiClient = axios.create({
-  baseURL: '/api/v1',
+  baseURL: 
+    import.meta.env.VITE_API_URL ||
+    'https://venturelens-production-8471.up.railway.app/api/v1',
   headers: {
     'Content-Type': 'application/json'
   },
@@ -33,10 +35,8 @@ export const companyApi = {
       const response = await apiClient.get(`/companies/${slug}`);
       return response.data;
     } catch (err) {
-      console.warn(`API error fetching company ${slug}, falling back to verified dataset:`, err);
-      if (slug.toLowerCase() === 'pronto') return PRONTO_DATA;
-      if (slug.toLowerCase() === 'snabbit') return SNABBIT_DATA;
-      throw new Error(`Company with slug ${slug} not found.`);
+      console.error(`API error fetching company ${slug}:`, err);
+      throw new Error(`Failed to load company data from the backend.`);
     }
   },
 
@@ -75,8 +75,8 @@ export const companyApi = {
       const response = await apiClient.get(`/companies/${slug}/news`);
       return response.data.news;
     } catch (err) {
-      const comp = slug.toLowerCase() === 'pronto' ? PRONTO_DATA : SNABBIT_DATA;
-      return comp.news;
+      console.error(`API error fetching news for ${slug}:`, err);
+      throw new Error(`Failed to load company news.`);
     }
   },
 
