@@ -21,7 +21,15 @@ export const companyApi = {
         const details = await Promise.all(
           response.data.results.map((c: { slug: string }) => companyApi.getCompanyBySlug(c.slug))
         );
-        return details;
+        return details.map((company) => ({
+          ...company,
+          logo_url:
+          company.slug === 'pronto'
+            ? '/logos/pronto.svg'
+            : company.slug === 'snabbit'
+              ? '/logos/snabbit.svg'
+              : company.logo_url,
+        }));
       }
       return [PRONTO_DATA, SNABBIT_DATA];
     } catch (err) {
@@ -33,7 +41,16 @@ export const companyApi = {
   getCompanyBySlug: async (slug: string): Promise<Company> => {
     try {
       const response = await apiClient.get(`/companies/${slug}`);
-      return response.data;
+      
+      const company = response.data;
+      
+      if (company.slug === 'pronto') {
+        company.logo_url = '/logos/pronto.svg';
+      } else if (company.slug === 'snabbit') {
+        company.logo_url = '/logos/snabbit.svg';
+      }
+      
+      return company;
     } catch (err) {
       console.error(`API error fetching company ${slug}:`, err);
       throw new Error(`Failed to load company data from the backend.`);
